@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gizli Mektuplar 💌</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: linear-gradient(to bottom right, #ffccda, #ffe6f0);
+    }
+    .kutucuk, .mektup {
+      margin-top: 30px;
+      padding: 25px;
+      background: #fff;
+      border: 2px solid #ff8fa3;
+      display: inline-block;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 105, 135, 0.3);
+      text-align: left;
+      white-space: pre-wrap; /* Satırları olduğu gibi gösterir */
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 15px;
+      background-color: #ff8fa3;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e0677e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gizli Mektuplar 💌</h1>
+
+  <div class="kutucuk" id="girisKismi">
+    <p>Lütfen erişim şifresini gir:</p>
+    <input type="password" id="sifre" placeholder="Şifreni buraya yaz" />
+    <br />
+    <button onclick="kontrolEt()">Giriş Yap</button>
+  </div>
+
+  <div id="mektup" class="mektup" style="display: none;"></div>
+
+  <script>
+    function kontrolEt() {
+      const girilenSifre = document.getElementById("sifre").value;
+      const dogruSifre = "297"; // Şifre burada
+
+      // Hedef açılma tarihi: 29 Temmuz 2025
+      const hedefGun = 29;
+      const hedefAy = 7;  // Temmuz (Aylar 0’dan başlar, +1 yapıyoruz)
+      const hedefYil = 2025;
+
+      const bugun = new Date();
+      const gun = bugun.getDate();
+      const ay = bugun.getMonth() + 1;
+      const yil = bugun.getFullYear();
+
+      const mektupDiv = document.getElementById("mektup");
+
+      if (girilenSifre === dogruSifre) {
+        if (gun === hedefGun && ay === hedefAy && yil === hedefYil) {
+          document.getElementById("girisKismi").style.display = "none";
+          mektupDiv.style.display = "block";
+          mektupDiv.textContent = `Sevgilim, merhaba.
+
+Bugün seninle iki koskoca yılı devirdik. Aslında düşününce bile inanması zor. Nasıl geçtiğini asla anlamadığım, ama her anıyla içimi ısıtan iki senenin ardından buradayım, sana yazıyorum.
+
+Bana ilk defa açıldığın zamanı hatırlıyorum da… O zaman biri gelip “bu çocukla dolu dolu iki yıl geçireceksin” deseydi, inanmazdım; hatta belki güler geçerdim. Ama işte insan en çok tesadüflerin içinde buluyor kendini. Ve bu tesadüf, benim için öyle kıymetli ki…
+İyi ki aşkım. İyi ki benimle bu yolda yürümeyi seçtin.
+
+Bu iki yıl, bana sadece gerçek sevginin ne demek olduğunu öğretmedi… Aynı zamanda kendimle ilgili çok şeyi fark etmemi sağladı. Belki de sana hiç söylemedim ama, çoğu zaman haklıydın. Geriye dönüp baktığımda bunu daha da iyi anlıyorum.
+
+Sana teşekkür etmek istiyorum. Her zorlandığımda, kendimi yalnız ve çaresiz hissettiğimde senin orada olduğunu bilmek bana hep bir umut verdi.
+Diyordum ki: “Bunlar gelip geçici şeyler. Benim bir dalım var.”
+İnsanların tutunacak bir dalı olur ya… Benim dalım sendin. 🌿
+
+Bazen tartıştık, bazen kırıldık ama hiçbir zaman vazgeçmedik. İşte bu yüzden seninle olmak her şeye değer.
+Bugün artık tam iki yıl oldu…
+Vay be, dile kolay.
+Ve ben seninle daha nice seneler istiyorum. Saçlarımız beyazlayana kadar…
+
+Yazıyı tamamlarken sana bir şey daha söylemek istiyorum:
+
+İyi ki sen.
+İyi ki biz.
+İyi ki hâlâ ilk günkü gibi bakan o güzel gözlerin.
+
+Seni her şeyinle çok ama çok seviyorum.
+
+Sonsuz sevgimle,
+Ve hep sana ait bir kalple,
+Duygu.`;
+        } else {
+          alert("Bugün mektupları açma günü değil. Lütfen 29 Temmuz 2025'te tekrar dene.");
+        }
+      } else {
+        alert("Hatalı şifre! Bu mektuplar sadece bize özel 💔");
+      }
+    }
+  </script>
+
+</body>
+</html>
